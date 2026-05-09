@@ -80,7 +80,7 @@ RUN apt-get update \
 RUN mkdir -p /data
 
 # Default configuration - can be overridden at runtime
-ENV PORT=3000
+ENV PORT=7860
 ENV SQLITE_PATH=/data/one-mcp.db
 
 # Node.js environment variables for better compatibility in containers
@@ -91,6 +91,6 @@ ENV NPM_CONFIG_PREFIX=/usr/local
 
 COPY --from=builder2 /build/one-mcp /
 COPY --from=builder2 /build/backend/locales /backend/locales
-EXPOSE 3000
+EXPOSE 7860
 WORKDIR /data
 ENTRYPOINT ["/one-mcp"]
